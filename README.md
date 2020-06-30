@@ -9,4 +9,4 @@ Use mysql as a database management system.
 
 ![Image text]https://github.com/fzEro555/Spike/blob/master/images/list.jpg
 
-![Image text]images/detail.jpg
+![Image text](images/detail.jpg)
