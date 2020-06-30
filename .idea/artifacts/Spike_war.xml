@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Spike:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Spike.war">
+      <element id="artifact" artifact-name="Spike:war exploded" />
+    </root>
+  </artifact>
+</component>

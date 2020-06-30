@@ -1,0 +1,30 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qx.spike.dao.SpikeDao">
+
+    <!--Purpose:Provide SQL statement configuration for dao interface methods-->
+    
+    <update id="reduceQuantity">
+        UPDATE spike_item
+        SET quantity = quantity - 1
+        WHERE spike_id = #{spikeId}
+        AND start_time <![CDATA[ <= ]]> #{spikeTime}
+        AND end_time <![CDATA[ >= ]]> #{spikeTime}
+        AND quantity > 0;
+    </update>
+
+    <select id="queryById" resultType="Spike" parameterType="long">
+        SELECT *
+        FROM spike_item
+        WHERE spike_id = #{spikeId}
+    </select>
+
+    <select id="queryAll" resultType="Spike">
+        SELECT *
+        FROM spike_item
+        ORDER BY create_time DESC
+        limit #{offset},#{limit}
+    </select>
+
+</mapper>

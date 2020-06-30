@@ -1,0 +1,32 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qx.spike.dao.SuccessfulSpikeDao">
+
+    <!--When there is a primary key conflict (that is, repeated spikes),
+    an error will be reported; I do not want the program to report an error so I use ignore here-->
+    <insert id="insertSuccessfulSpike">
+        INSERT ignore INTO successful_spike(spike_id, user_phone, status)
+        VALUES (#{spikeId}, #{userPhone}, 0)
+    </insert>
+
+    <!--Query successful spike by spike_id, along with a spike_item object-->
+    <select id="queryByIdWithSpike" resultType="SuccessfulSpike">
+        SELECT
+            a.spike_id,
+            a.user_phone,
+            a.create_time,
+            a.status,
+            b.spike_id "spike_item.spike_id",
+            b.name "spike_item.name",
+            b.quantity "spike_item.quantity",
+            b.start_time "spike_item.start_time",
+            b.end_time "spike_item.end_time",
+            b.create_time "spike_item.create_time"
+        FROM successful_spike a
+        INNER JOIN spike_item b on a.spike_id = b.spike_id
+        WHERE a.spike_id = #{spikeId}
+        AND a.user_phone = #{userPhone}
+    </select>
+
+</mapper>
