@@ -7,7 +7,9 @@ Use redis to handle high concurrency.
 
 Use mysql as a database management system.
 
-Front-end use jquery and simple jsp
+Use md5 to encrypt the spike url.
+
+Front-end use jquery and simple jsp.
 
 ![Image text](images/list.jpg)
 
