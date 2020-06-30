@@ -7,6 +7,6 @@ Use redis to handle high concurrency.
 
 Use mysql as a database management system.
 
-![Image text]
+![Image text]images/list.jpg
 
-![Image text]
+![Image text]images/detail.jpg
